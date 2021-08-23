@@ -3,10 +3,10 @@
         <div class="header-body text-center mb-5">
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-9">
-                    <h1 class="text-white">{{ __('Welcome to Argon Dashboard Pro Laravel Live Preview.') }}</h1>
+                    <h1 class="text-white">{{ __('Welcome to ') }}{{ env('APP_NAME')}}</h1>
 
                     <p class="text-lead text-light mt-3 mb-0">
-                        {{ __('Log in and see how you can save more than 150 hours of work with CRUDs for managing: #users, #roles, #items, #categories, #tags and more.') }}
+                        {{ __('Log in and see the last matches\' results of your favourite team.') }}
                         @include('alerts.migrations_check')
                     </p>
                 </div>

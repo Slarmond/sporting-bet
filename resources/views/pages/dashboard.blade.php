@@ -1,23 +1,145 @@
 @extends('layouts.app', [
-    'parentSection' => 'dashboards',
-    'elementName' => 'dashboard'
+'parentSection' => 'dashboards',
+'elementName' => 'dashboard'
 ])
 
-@section('content') 
-    @component('layouts.headers.auth') 
+@section('content')
+    @component('layouts.headers.auth')
         @component('layouts.headers.breadcrumbs')
-            @slot('title') 
-                {{ __('Default') }} 
+            @slot('title')
+                {{ __('Default') }}
             @endslot
 
             <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('Dashboards') }}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ __('Default') }}</li>
         @endcomponent
-        @include('layouts.headers.cards') 
+        @include('layouts.headers.cards')
     @endcomponent
 
     <div class="container-fluid mt--6">
         <div class="row">
+            <div class="col-xl-12">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <!-- Card header -->
+                            <div class="card-header border-0">
+                                <h3 class="mb-0">Other Bookmakers</h3>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table align-items-center table-flush">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col" class="sort" data-sort="name">Bookmaker</th>
+                                            <th scope="col" class="sort" data-sort="home_team">Home Team</th>
+                                            <th scope="col" class="sort" data-sort="draw">Draw</th>
+                                            <th scope="col" class="sort" data-sort="away_team">Away Team</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="list">
+                                        @foreach ($oddsData->bookmakers as $bookmaker)
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="media align-items-center">
+                                                        {{-- <a href="#" class="avatar rounded-circle mr-3">
+                                                    <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/bootstrap.jpg">
+                                                </a> --}}
+                                                        <div class="media-body">
+                                                            <span class="name mb-0 text-sm">{{ $bookmaker->title }}</span>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                @foreach ($bookmaker->markets as $market)
+                                                    @foreach ($market->outcomes as $outcome)
+                                                        <td class="budget">
+                                                            {{$outcome->price}}
+                                                        </td>
+                                                        
+                                                    @endforeach
+
+                                                @endforeach
+                                                {{-- <td class="text-right">
+                                                    <div class="dropdown">
+                                                        <a class="btn btn-sm btn-icon-only text-light" href="#"
+                                                            role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                            <i class="fas fa-ellipsis-v"></i>
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                            <a class="dropdown-item" href="#">Action</a>
+                                                            <a class="dropdown-item" href="#">Another action</a>
+                                                            <a class="dropdown-item" href="#">Something else here</a>
+                                                        </div>
+                                                    </div>
+                                                </td> --}}
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-deck">
+                    <div class="card bg-gradient-default">
+                        <div class="card-body">
+                            <div class="mb-2">
+                                <sup class="text-white">$</sup> <span class="h2 text-white">3,300</span>
+                                <div class="text-light mt-2 text-sm">Your current balance</div>
+                                <div>
+                                    <span class="text-success font-weight-600">+ 15%</span> <span
+                                        class="text-light">($250)</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-sm btn-block btn-neutral">Add credit</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <small class="text-light">Orders: 60%</small>
+                                    <div class="progress progress-xs my-2">
+                                        <div class="progress-bar bg-success" style="width: 60%"></div>
+                                    </div>
+                                </div>
+                                <div class="col"><small class="text-light">Sales: 40%</small>
+                                    <div class="progress progress-xs my-2">
+                                        <div class="progress-bar bg-warning" style="width: 40%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Username card -->
+                    <div class="card bg-gradient-danger">
+                        <!-- Card body -->
+                        <div class="card-body">
+                            <div class="row justify-content-between align-items-center">
+                                <div class="col">
+                                    <img src="{{ asset('argon') }}/img/icons/cards/bitcoin.png" alt="Image placeholder" />
+                                </div>
+                                <div class="col-auto">
+                                    <span class="badge badge-lg badge-success">Active</span>
+                                </div>
+                            </div>
+                            <div class="my-4">
+                                <span class="h6 surtitle text-light">
+                                    Username
+                                </span>
+                                <div class="h1 text-white">@johnsnow</div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <span class="h6 surtitle text-light">Name</span>
+                                    <span class="d-block h3 text-white">John Snow</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- <div class="row">
             <div class="col-xl-8">
                 <div class="card bg-default">
                     <div class="card-header bg-transparent">
@@ -1279,7 +1401,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Footer -->
         @include('layouts.footers.auth')
     </div>

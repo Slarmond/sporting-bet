@@ -29,25 +29,13 @@
                     </div>
                 </li>
                 <li class="nav-item d-none d-lg-block ml-lg-4">
-                    <a href="{{ url('/docs/getting-started/overview.html') }}" target="_blank" class="btn btn-neutral btn-documentation btn-icon">
-                        <span class="btn-inner--icon">
-                            <i class="ni ni-book-bookmark mr-2"></i>
-                        </span>
-                        <span class="nav-link-inner--text">Documentation</span>
-                    </a>
+                    
                 </li>
                 <li class="nav-item d-sm-none">
-                    <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
-                        <i class="ni ni-zoom-split-in"></i>
-                    </a>
+        
                 </li>
                 <li class="nav-item d-none d-lg-block ml-lg-4">
-                    <a href="https://www.creative-tim.com/product/argon-dashboard-pro-laravel" target="_blank" class="btn btn-neutral btn-icon">
-                        <span class="btn-inner--icon">
-                            <i class="fas fa-shopping-cart mr-2"></i>
-                        </span>
-                        <span class="nav-link-inner--text">Purchase now</span>
-                    </a>
+  
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
