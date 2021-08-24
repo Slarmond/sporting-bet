@@ -33,6 +33,7 @@
                                             <th scope="col" class="sort" data-sort="name">Bookmaker</th>
                                             <th scope="col" class="sort" data-sort="home_team">Home Team</th>
                                             <th scope="col" class="sort" data-sort="away_team">Away Team</th>
+                                            <th scope="col" class="sort" data-sort="away_team">Draw</th>
                                         </tr>
                                     </thead>
                                     <tbody class="list">
