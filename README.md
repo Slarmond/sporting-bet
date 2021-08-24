@@ -1,6 +1,7 @@
 ## Installation of FE Interface
 
 - In your terminal run `composer install`
+- create a MySQL Database
 - Copy `.env.example` to `.env` and updated the configurations (mainly the database configuration)
 - In your terminal run `php artisan key:generate`
 - Run `php artisan migrate --seed` to create the database tables and seed the roles and users tables
@@ -13,7 +14,6 @@
 
 To start testing the Pro theme, register as a user or log in using one of the default users: 
 
-- admin type - **admin@argon.com** with the password **secret**
-- creator type - **creator@argon.com** with the password **secret** 
-- member type - **member@argon.com** with the password **secret** 
-
+- **jsmith@degenerates.com** with the password **secret**
+- **jbrown@degenerates.com** with the password **secret** 
+- **gdavis@degenerates.com** with the password **secret** 

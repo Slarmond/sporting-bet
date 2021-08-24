@@ -30,13 +30,13 @@
                                 <li class="nav-item {{ $elementName == 'dashboard' ? 'active' : '' }}">
                                     <a href="{{ route('home') }}" class="nav-link">{{ __('Dashboard') }}</a>
                                 </li>
-                                <li class="nav-item {{ $elementName == 'dashboard-alternative' ? 'active' : '' }}">
+                                {{-- <li class="nav-item {{ $elementName == 'dashboard-alternative' ? 'active' : '' }}">
                                     <a href="{{ route('page.index','dashboard-alternative') }}" class="nav-link">{{ __('Alternative') }}</a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item active">
+                    {{-- <li class="nav-item active">
                         <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
                             <i class="fab fa-laravel" style="color: #f4645f;"></i>
                             <span class="nav-link-text" style="color: #f4645f;">{{ __('Laravel Examples') }}</span>
@@ -206,9 +206,9 @@
                             <i class="ni ni-calendar-grid-58 text-red"></i>
                             <span class="nav-link-text">{{ __('Calendar') }}</span>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
-                <!-- Divider -->
+                {{-- <!-- Divider -->
                 <hr class="my-3">
                 <!-- Heading -->
                 <h6 class="navbar-heading p-0 text-muted">{{ __('Documentation') }}</h6>
@@ -238,7 +238,7 @@
                             <span class="nav-link-text">Plugins</span>
                         </a>
                     </li>
-                </ul>
+                </ul> --}}
             </div>
         </div>
     </div>

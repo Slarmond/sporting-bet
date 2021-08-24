@@ -13,12 +13,13 @@
                 @if (isset($infoLogin))
                 <div class="col-lg-5 col-md-6">
                         <h3 class="text-lead text-white mt-5 mb-0">
-                            <strong>{{ __('You can log in with 3 user types:') }}</strong>
+                            <strong>{{ __('You can log in with 3 user accounts:') }}</strong>
                         </h3>
                         <ol class="text-lead text-light mt-3 mb-0">
-                            <li>{{ __('Username') }} <b>admin@argon.com</b> {{ __('Password') }} <b>secret</b></li>
-                            <li>{{ __('Username') }} <b>creator@argon.com</b> {{ __('Password') }} <b>secret</b></li>
-                            <li>{{ __('Username') }} <b>member@argon.com</b> {{ __('Password') }} <b>secret</b></li>
+                            <li>{{ __('Username1') }} <b>jsmith@degenerates.com</b> </li>
+                            <li>{{ __('Username2') }} <b>jbrown@degenerates.com</b> </li>
+                            <li>{{ __('Username3') }} <b>gdavis@degenerates.com</b> </li>
+                            {{ __('Password') }} <b>secret</b>
                         </ol>
                     </div>
                 @endif

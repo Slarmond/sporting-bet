@@ -24,7 +24,7 @@
                         <div class="card">
                             <!-- Card header -->
                             <div class="card-header border-0">
-                                <h3 class="mb-0">Other Bookmakers</h3>
+                                <h3 class="mb-0">Other Bookmakers H2H</h3>
                             </div>
                             <div class="table-responsive">
                                 <table class="table align-items-center table-flush">
@@ -32,9 +32,7 @@
                                         <tr>
                                             <th scope="col" class="sort" data-sort="name">Bookmaker</th>
                                             <th scope="col" class="sort" data-sort="home_team">Home Team</th>
-                                            <th scope="col" class="sort" data-sort="draw">Draw</th>
                                             <th scope="col" class="sort" data-sort="away_team">Away Team</th>
-                                            <th scope="col"></th>
                                         </tr>
                                     </thead>
                                     <tbody class="list">
@@ -42,22 +40,19 @@
                                             <tr>
                                                 <th scope="row">
                                                     <div class="media align-items-center">
-                                                        {{-- <a href="#" class="avatar rounded-circle mr-3">
-                                                    <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/bootstrap.jpg">
-                                                </a> --}}
                                                         <div class="media-body">
                                                             <span class="name mb-0 text-sm">{{ $bookmaker->title }}</span>
                                                         </div>
                                                     </div>
                                                 </th>
                                                 @foreach ($bookmaker->markets as $market)
-                                                    @foreach ($market->outcomes as $outcome)
-                                                        <td class="budget">
-                                                            {{$outcome->price}}
-                                                        </td>
-                                                        
-                                                    @endforeach
-
+                                                    @if ($market->key == 'h2h')
+                                                        @foreach ($market->outcomes as $outcome)
+                                                            <td class="budget">
+                                                                {{ $outcome->price }}
+                                                            </td>
+                                                        @endforeach
+                                                    @endif
                                                 @endforeach
                                                 {{-- <td class="text-right">
                                                     <div class="dropdown">

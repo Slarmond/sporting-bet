@@ -37,7 +37,7 @@
                 <li class="nav-item d-none d-lg-block ml-lg-4">
   
                 </li>
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="ni ni-bell-55"></i>
                     </a>
@@ -192,7 +192,7 @@
                             </a>
                         </div>
                     </div>
-                </li>
+                </li> --}}
             </ul>
             <ul class="navbar-nav align-items-center ml-auto ml-md-0">
                 <li class="nav-item dropdown">
@@ -210,10 +210,10 @@
                         <div class="dropdown-header noti-title">
                             <h6 class="text-overflow m-0">{{ __('Welcome!') }}</h6>
                         </div>
-                        <a href="{{ route('profile.edit') }}" class="dropdown-item">
+                        {{-- <a href="{{ route('profile.edit') }}" class="dropdown-item">
                             <i class="ni ni-single-02"></i>
                             <span>{{ __('My profile') }}</span>
-                        </a>
+                        </a> --}}
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
