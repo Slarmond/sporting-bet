@@ -13,7 +13,7 @@
             <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('Dashboards') }}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ __('Default') }}</li>
         @endcomponent
-        @include('layouts.headers.cards')
+        {{-- @include('layouts.headers.cards') --}}
     @endcomponent
 
     <div class="container-fluid mt--6">
@@ -36,7 +36,7 @@
                                             <th scope="col" class="sort" data-sort="away_team">Draw</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="list">
+                                    {{-- <tbody class="list">
                                         @foreach ($oddsData->bookmakers as $bookmaker)
                                             <tr>
                                                 <th scope="row">
@@ -47,7 +47,7 @@
                                                     </div>
                                                 </th>
                                                 @foreach ($bookmaker->markets as $market)
-                                                    @if ($market->key == 'h2h')
+                                                    @if ($market->key == env('MARKETS'))
                                                         @foreach ($market->outcomes as $outcome)
                                                             <td class="budget">
                                                                 {{ $outcome->price }}
@@ -55,23 +55,9 @@
                                                         @endforeach
                                                     @endif
                                                 @endforeach
-                                                {{-- <td class="text-right">
-                                                    <div class="dropdown">
-                                                        <a class="btn btn-sm btn-icon-only text-light" href="#"
-                                                            role="button" data-toggle="dropdown" aria-haspopup="true"
-                                                            aria-expanded="false">
-                                                            <i class="fas fa-ellipsis-v"></i>
-                                                        </a>
-                                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                            <a class="dropdown-item" href="#">Action</a>
-                                                            <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else here</a>
-                                                        </div>
-                                                    </div>
-                                                </td> --}}
                                             </tr>
                                         @endforeach
-                                    </tbody>
+                                    </tbody> --}}
                                 </table>
                             </div>
                         </div>
@@ -81,28 +67,9 @@
                     <div class="card bg-gradient-default">
                         <div class="card-body">
                             <div class="mb-2">
-                                <sup class="text-white">$</sup> <span class="h2 text-white">3,300</span>
+                                <sup class="text-white">Ether </sup> <span class="h2 text-white">
+                                    {{ $etherScanBalance }}</span>
                                 <div class="text-light mt-2 text-sm">Your current balance</div>
-                                <div>
-                                    <span class="text-success font-weight-600">+ 15%</span> <span
-                                        class="text-light">($250)</span>
-                                </div>
-                            </div>
-                            <button class="btn btn-sm btn-block btn-neutral">Add credit</button>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col">
-                                    <small class="text-light">Orders: 60%</small>
-                                    <div class="progress progress-xs my-2">
-                                        <div class="progress-bar bg-success" style="width: 60%"></div>
-                                    </div>
-                                </div>
-                                <div class="col"><small class="text-light">Sales: 40%</small>
-                                    <div class="progress progress-xs my-2">
-                                        <div class="progress-bar bg-warning" style="width: 40%"></div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -129,6 +96,49 @@
                                     <span class="h6 surtitle text-light">Name</span>
                                     <span class="d-block h3 text-white">John Snow</span>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-12">
+                <div class='row'>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header border-0">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h3 class="mb-0">Your Ether Account Transactions</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table align-items-center table-flush">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col" class="sort" data-sort="blockNumber">Block Number</th>
+                                            <th scope="col" class="sort" data-sort="from">From</th>
+                                            <th scope="col" class="sort" data-sort="to">To</th>
+                                            <th scope="col" class="sort" data-sort="ether">Ether Amount</th>
+                                            <th scope="col" class="sort" data-sort="ether">Gas Price</th>
+                                            <th scope="col" class="sort" data-sort="ether">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($etherScanTransactions->result as $transaction)
+                                            <tr>
+                                                <td> {{ $transaction->blockNumber }} </td>
+                                                <td> {{ $transaction->from }} </td>
+                                                <td> {{ $transaction->to }} </td>
+                                                <td> {{ pow(10,-18)*($transaction->value)}} </td>
+                                                <td> {{ pow(10,-9)*($transaction->gasPrice)}} </td>
+                                                @if ($transaction->isError =='0')
+                                                    <td><button type="button" class="btn btn-success">Success</button></td>
+                                                @endif
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

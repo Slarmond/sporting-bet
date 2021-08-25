@@ -6,6 +6,7 @@ use App\Item;
 use App\User;
 use App\Observers\ItemObserver;
 use App\Observers\UserObserver;
+use App\Services\EtherScanService;
 use App\Services\OddsService;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
@@ -21,10 +22,19 @@ class AppServiceProvider extends ServiceProvider
     {
         Item::observe(ItemObserver::class);
         User::observe(UserObserver::class);
-        $sportService = new OddsService();
-        $data = $sportService->getData();
 
-        return View::share('oddsData', $data);
+        $sportService       = new OddsService();
+        $etherScanService   = new EtherScanService();
+
+        // $oddsData               = $sportService->getData();
+        $etherScanBalance       = $etherScanService->getEtherBalanceForASingleAddress();
+        $etherScanTransactions  = $etherScanService->getTransactionsByAddress();
+
+        return View::share([
+            // 'oddsData'              => $oddsData,
+            'etherScanBalance'      => $etherScanBalance,
+            'etherScanTransactions' => $etherScanTransactions
+        ]);
     }
 
     /**
