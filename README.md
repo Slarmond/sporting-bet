@@ -1,8 +1,16 @@
 ## Installation of FE Interface
 
 - In your terminal run `composer install`
-- create a MySQL Database
-- Copy `.env.example` to `.env` and update the configurations
+- create an empty MySQL Database (v8 recommended)
+- Copy `.env.example` to `.env` and update the following configurations:
+    1. ODDS_API_KEY
+    2. ETHERSCAN_API_KEY
+    3. ETHERSCAN_CLIENT_ADDRESS
+    4. MNEMONIC
+    5. DB_DATABASE
+    6. DB_USERNAME
+    7. DB_PASSWORD
+    
 - In your terminal run `php artisan key:generate`
 - Run `php artisan migrate --seed` to create the database tables and seed the roles and users tables
 - Run `php artisan storage:link` to create the storage symlink (if you are using **Vagrant** with **Homestead** for development, remember to ssh into your virtual machine and run the command from there).
