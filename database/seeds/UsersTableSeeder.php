@@ -17,6 +17,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'John Smith',
             'email' => 'jsmith@degenerates.com',
             'role_id' => 1,
+            'wallet_address' => env("ETHERSCAN_CLIENT_ADDRESS"),
         ]);
 
         factory(App\User::class)->create([
@@ -24,6 +25,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'James Brown',
             'email' => 'jbrown@degenerates.com',
             'role_id' => 2,
+            'wallet_address' => env("ETHERSCAN_CLIENT_ADDRESS"),
         ]);
 
         factory(App\User::class)->create([
@@ -31,6 +33,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'George Davis',
             'email' => 'gdavis@degenerates.com',
             'role_id' => 3,
+            'wallet_address' => env("ETHERSCAN_CLIENT_ADDRESS"),
         ]);
     }
 }

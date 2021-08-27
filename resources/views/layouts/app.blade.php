@@ -1,19 +1,4 @@
-{{--
 
-=========================================================
-* Argon Dashboard PRO - v1.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-pro-laravel
-* Copyright 2018 Creative Tim (https://www.creative-tim.com) & UPDIVISION (https://www.updivision.com)
-
-* Coded by www.creative-tim.com & www.updivision.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
---}}
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -73,7 +58,8 @@
         <!-- Optional JS -->
         <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.min.js"></script>
         <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.extension.js"></script>
-
+        <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+        <script src="{{ asset('degenerates/js') }}/solidity.js"></script>
         @stack('js')
 
         <!-- Argon JS -->

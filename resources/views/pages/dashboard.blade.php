@@ -66,20 +66,38 @@
                 <div class="card-deck">
                     <div class="card bg-gradient-default">
                         <div class="card-body">
-                            <div class="mb-2">
-                                <sup class="text-white">Ether </sup> <span class="h2 text-white">
-                                    {{ $etherScanBalance }}</span>
-                                <div class="text-light mt-2 text-sm">Your current balance</div>
+                            <div class="row justify-content-between align-items-center">
+                                <div class="col">
+                                    <div class="mb-2">
+                                        <sup class="text-white">Ether </sup> <span class="h2 text-white">
+                                            {{ $etherScanBalance }}</span>
+                                        <div class="text-light mt-2 text-sm">Your current balance</div>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="mb-2">
+                                        <div class="text-light mt-2 text-sm">Transaction Receipt</div>
+                                        <span class="h2 text-white"> {{ $etherScanBalance }}</span>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="mb-2">
+                                        <div class="text-light mt-2 text-sm">Contract Execution Status</div>
+                                        <sup class="text-white">Ether </sup> <span class="h2 text-white">
+                                            {{ $etherScanBalance }}</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!-- Username card -->
-                    <div class="card bg-gradient-danger">
+                    <div class="card bg-gradient-info">
                         <!-- Card body -->
                         <div class="card-body">
                             <div class="row justify-content-between align-items-center">
                                 <div class="col">
-                                    <img src="{{ asset('argon') }}/img/icons/cards/bitcoin.png" alt="Image placeholder" />
+                                    <img src="{{ asset('argon') }}/img/icons/cards/eth.svg" alt="Image placeholder"
+                                        width="50" />
                                 </div>
                                 <div class="col-auto">
                                     <span class="badge badge-lg badge-success">Active</span>
@@ -87,14 +105,14 @@
                             </div>
                             <div class="my-4">
                                 <span class="h6 surtitle text-light">
-                                    Username
+                                    Name
                                 </span>
-                                <div class="h1 text-white">@johnsnow</div>
+                                <div class="h1 text-white">{{ auth()->user()->name }} </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <span class="h6 surtitle text-light">Name</span>
-                                    <span class="d-block h3 text-white">John Snow</span>
+                                    <span class="h6 surtitle text-light">Address</span>
+                                    <span class="d-block h3 text-white">{{ auth()->user()->wallet_address }}</span>
                                 </div>
                             </div>
                         </div>
@@ -130,9 +148,9 @@
                                                 <td> {{ $transaction->blockNumber }} </td>
                                                 <td> {{ $transaction->from }} </td>
                                                 <td> {{ $transaction->to }} </td>
-                                                <td> {{ pow(10,-18)*($transaction->value)}} </td>
-                                                <td> {{ pow(10,-9)*($transaction->gasPrice)}} </td>
-                                                @if ($transaction->isError =='0')
+                                                <td> {{ pow(10, -18) * $transaction->value }} </td>
+                                                <td> {{ pow(10, -9) * $transaction->gasPrice }} </td>
+                                                @if ($transaction->isError == '0')
                                                     <td><button type="button" class="btn btn-success">Success</button></td>
                                                 @endif
                                             </tr>
@@ -1411,6 +1429,11 @@
         <!-- Footer -->
         @include('layouts.footers.auth')
     </div>
+    <h2></h2>
+    <form id="form">
+        <input id="input" type="text" />
+        <input type="submit" value="submit" />
+    </form>
 @endsection
 
 @push('js')
