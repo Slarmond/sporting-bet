@@ -37239,8 +37239,8 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\FinTech BootCamp\PREWORK_CP\Project 3\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\FinTech BootCamp\PREWORK_CP\Project 3\resources\assets\scss\argon.scss */"./resources/assets/scss/argon.scss");
+__webpack_require__(/*! D:\FinTech BootCamp\PREWORK_CP\degenerates\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\FinTech BootCamp\PREWORK_CP\degenerates\resources\assets\scss\argon.scss */"./resources/assets/scss/argon.scss");
 
 
 /***/ })

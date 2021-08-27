@@ -26,14 +26,13 @@ class AppServiceProvider extends ServiceProvider
         $sportService       = new OddsService();
         $etherScanService   = new EtherScanService();
 
-        // $oddsData               = $sportService->getData();
-        $etherScanBalance       = $etherScanService->getEtherBalanceForASingleAddress();
-        $etherScanTransactions  = $etherScanService->getTransactionsByAddress();
 
         return View::share([
-            // 'oddsData'              => $oddsData,
-            'etherScanBalance'      => $etherScanBalance,
-            'etherScanTransactions' => $etherScanTransactions
+            // 'oddsData'                          => $sportService->getData(),
+            'etherScanBalance'                  => $etherScanService->getEtherBalanceForASingleAddress(),
+            'etherScanTransactions'             => $etherScanService->getTransactionsByAddress(),
+            'etherScanTransactionReceipt'       => $etherScanService->getTransactionReceipt(),
+            'etherScanContractExecutionStatus'  => $etherScanService->checkContractExecutionStatus(),
         ]);
     }
 

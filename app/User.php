@@ -31,7 +31,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'picture' ,'role_id'
+        'name', 'email', 'password', 'picture' ,'role_id', 'wallet_address',
     ];
 
     /**
@@ -40,7 +40,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'wallet_address'
     ];
 
     /**
@@ -96,4 +96,5 @@ class User extends Authenticatable
     {
         return $this->role_id == 3;
     }
+
 }
