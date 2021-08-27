@@ -7,8 +7,19 @@
 - Run `php artisan migrate --seed` to create the database tables and seed the roles and users tables
 - Run `php artisan storage:link` to create the storage symlink (if you are using **Vagrant** with **Homestead** for development, remember to ssh into your virtual machine and run the command from there).
 - Install NodeJs dependencies `npm install`
+- Make sure you have truffle installed `npm install -g truffle`
+- Install a solidity complier `npm install -g solc`
 - Run the webpack `npm run watch`
 - Run `php artisan serve`
+
+
+## Compile & Migrate the contract using Truffle
+- Navigate to the solidity/clients folder and run the following commands:
+    1. `npm i web3 --save`
+    2. `npm i lite-server --save-dev`
+    3. `npm i jquery`
+    3. `truffle compile`
+    4. `truffle migrate`
 
 ## Usage
 
