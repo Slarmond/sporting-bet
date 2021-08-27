@@ -1,6 +1,7 @@
 ## Installation of FE Interface
 
 - You need to install [PHP 7.4.15](https://www.php.net/)
+- Open your terminal and navigate to the project's folder
 - In your terminal run `composer install`
 - create an empty MySQL Database (v8 recommended)
 - Copy `.env.example` to `.env` and update the following configurations:
