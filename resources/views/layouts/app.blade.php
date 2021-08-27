@@ -59,7 +59,7 @@
         <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.min.js"></script>
         <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.extension.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
-        <script src="{{ asset('degenerates/js') }}/solidity.js"></script>
+        <script src="{{ asset('degenerates/js') }}/index.js"></script>
         @stack('js')
 
         <!-- Argon JS -->

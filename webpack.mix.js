@@ -12,4 +12,5 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/degenerates/js')
+   .js('solidity/client/src/index.js', 'public/degenerates/js')
    .sass('resources/assets/scss/argon.scss', 'public/css');
