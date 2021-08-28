@@ -1,7 +1,7 @@
 ## Installation of FE Interface
 
 - You need to install [PHP 7.4.15](https://www.php.net/)
-- Open your terminal and navigate to the project's folder
+- Open your terminal and navigate to the project's folder. Make sure you name the folder `degenerates`.
 - In your terminal run `composer install`
 - create an empty MySQL Database (v8 recommended)
 - Copy `.env.example` to `.env` and update the following configurations:
@@ -24,16 +24,21 @@
 
 
 ## Compile & Migrate the contract using Truffle
-- Navigate to the solidity/clients folder and run the following commands:
+- Navigate to the solidity/client folder and run the following commands:
     1. `npm i web3 --save`
     2. `npm i lite-server --save-dev`
     3. `npm i jquery`
     3. `truffle compile`
     4. `truffle migrate`
 
+
+## Copy the JSON files of the contracts
+Create a symbolic link of the **solidity/build/contracts** folder and save it to **public/degenerates/**
+
+
 ## Usage
 
-To start testing the Pro theme, register as a user or log in using one of the default users: 
+To start testing the degenerates sporting bet app, register as a user or log in using one of the default users: 
 
 - **jsmith@degenerates.com** with the password **secret**
 - **jbrown@degenerates.com** with the password **secret** 

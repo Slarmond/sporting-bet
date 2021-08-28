@@ -15,7 +15,12 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
+
 namespace App\Http\Controllers;
+
+use App\Services\EtherScanService;
+use App\Services\OddsService;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -36,6 +41,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.dashboard');
+        $user = Auth::user();
+        $user_wallet_address    = $user->wallet_address;
+        $sportService           = new OddsService();
+        $etherScanService       = new EtherScanService();
+
+        return view('pages.dashboard', [
+            // 'oddsData'                          => $sportService->getData(),
+            'etherScanBalance'                  => $etherScanService->getEtherBalanceForASingleAddress($user_wallet_address),
+            'etherScanTransactions'             => $etherScanService->getTransactionsByAddress($user_wallet_address),
+            // 'etherScanTransactionReceipt'       => $etherScanService->getTransactionReceipt($user_wallet_address),
+            // 'etherScanContractExecutionStatus'  => $etherScanService->checkContractExecutionStatus($user_wallet_address),
+        ]);
     }
 }

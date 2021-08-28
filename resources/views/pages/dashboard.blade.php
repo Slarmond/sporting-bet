@@ -75,17 +75,17 @@
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <div class="mb-2">
+                                    {{-- <div class="mb-2">
                                         <div class="text-light mt-2 text-sm">Transaction Receipt</div>
                                         <span class="h2 text-white"> {{ $etherScanBalance }}</span>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="col-auto">
-                                    <div class="mb-2">
+                                    {{-- <div class="mb-2">
                                         <div class="text-light mt-2 text-sm">Contract Execution Status</div>
                                         <sup class="text-white">Ether </sup> <span class="h2 text-white">
                                             {{ $etherScanBalance }}</span>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -1426,17 +1426,15 @@
                 </div>
             </div>
         </div> --}}
-        <!-- Footer -->
-        @include('layouts.footers.auth')
+
     </div>
     <h2></h2>
     <form id="form">
         <input id="input" type="text" />
         <input type="submit" value="submit" />
     </form>
-@endsection
+    <h2></h2>
+    <!-- Footer -->
+    @include('layouts.footers.auth')
 
-@push('js')
-    <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.min.js"></script>
-    <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.extension.js"></script>
-@endpush
+@endsection

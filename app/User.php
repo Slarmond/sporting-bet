@@ -15,6 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
+
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
@@ -31,7 +32,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'picture' ,'role_id', 'wallet_address',
+        'name', 'email', 'password', 'picture', 'role_id', 'wallet_address',
     ];
 
     /**
@@ -40,7 +41,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'wallet_address'
+        'password', 'remember_token'
     ];
 
     /**
@@ -96,5 +97,4 @@ class User extends Authenticatable
     {
         return $this->role_id == 3;
     }
-
 }

@@ -5,9 +5,11 @@ namespace App\Services;
 class EtherScanService
 {
 
-    public function getEtherBalanceForASingleAddress()
+
+
+    public function getEtherBalanceForASingleAddress($wallet_address)
     {
-        $client_address = env('ETHERSCAN_CLIENT_ADDRESS');
+        $client_address = $wallet_address;
         $api_key        = env('ETHERSCAN_API_KEY');
         $network        = env('Kovan');
 
@@ -44,9 +46,9 @@ class EtherScanService
         return $response;
     }
 
-    public function getTransactionsByAddress()
+    public function getTransactionsByAddress($wallet_address)
     {
-        $client_address = env('ETHERSCAN_CLIENT_ADDRESS');
+        $client_address = $wallet_address;
         $api_key        = env('ETHERSCAN_API_KEY');
         $network        = env('Kovan');
 
@@ -60,9 +62,9 @@ class EtherScanService
         return $response;
     }
 
-    public function getTransactionReceipt()
+    public function getTransactionReceipt($wallet_address)
     {
-        $client_address = env('ETHERSCAN_CLIENT_ADDRESS');
+        $client_address = $wallet_address;
         $api_key        = env('ETHERSCAN_API_KEY');
         $network        = env('Kovan');
         $transactionHash = $this->getTransactionsByAddress($client_address)->result[0]->hash;
@@ -76,9 +78,9 @@ class EtherScanService
         return $response;
     }
 
-    public function checkContractExecutionStatus()
+    public function checkContractExecutionStatus($wallet_address)
     {
-        $client_address = env('ETHERSCAN_CLIENT_ADDRESS');
+        $client_address = $wallet_address;
         $api_key        = env('ETHERSCAN_API_KEY');
         $network        = env('Kovan');
         $transactionHash = $transactionHash = $this->getTransactionsByAddress($client_address)->result[0]->hash;

@@ -8,22 +8,9 @@
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-8">
                 <div class="card bg-secondary shadow border-0">
-                    <div class="card-header bg-transparent pb-5">
-                        <div class="text-muted text-center mt-2 mb-4"><small>{{ __('Sign up with') }}</small></div>
-                        <div class="text-center">
-                            <a href="#" class="btn btn-neutral btn-icon mr-4">
-                                <span class="btn-inner--icon"><img src="{{ asset('argon') }}/img/icons/common/github.svg"></span>
-                                <span class="btn-inner--text">{{ __('Github') }}</span>
-                            </a>
-                            <a href="#" class="btn btn-neutral btn-icon">
-                                <span class="btn-inner--icon"><img src="{{ asset('argon') }}/img/icons/common/google.svg"></span>
-                                <span class="btn-inner--text">{{ __('Google') }}</span>
-                            </a>
-                        </div>
-                    </div>
                     <div class="card-body px-lg-5 py-lg-5">
                         <div class="text-center text-muted mb-4">
-                            <small>{{ __('Or sign up with credentials') }}</small>
+                            <small>{{ __('Sign Up') }}</small>
                         </div>
                         <form role="form" method="POST" action="{{ route('register') }}">
                             @csrf
@@ -55,20 +42,22 @@
                                 @endif
                             </div>
                             <div class="form-group{{ $errors->has('user_type') ? ' has-danger' : '' }}">
-                                <div class="input-group input-group-alternative">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-badge"></i></span>
-                                    </div>
-                                    <select class="form-control{{ $errors->has('user_type') ? ' is-invalid' : '' }}" id="user_type" name="user_type">
-                                        <option value="" selected hidden>{{ __('User Type') }}</option>
-                                        <option value="1" @if (old('user_type') == 1) selected @endif>{{ __('Admin') }}</option>
-                                        <option value="2" @if (old('user_type') == 2) selected @endif>{{ __('Creator') }}</option>
-                                        <option value="3" @if (old('user_type') == 3) selected @endif>{{ __('Member') }}</option>
-                                    </select>
-                                </div>
                                 @if ($errors->has('user_type'))
                                     <span class="invalid-feedback" style="display: block;" role="alert">
                                         <strong>{{ $errors->first('user_type') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="form-group{{ $errors->has('wallet_address') ? ' has-danger' : '' }}">
+                                <div class="input-group input-group-alternative">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                    </div>
+                                    <input class="form-control{{ $errors->has('passwallet_addressword') ? ' is-invalid' : '' }}" placeholder="{{ __('Wallet Address') }}" type="wallet_address" name="wallet_address" required>
+                                </div>
+                                @if ($errors->has('wallet_address'))
+                                    <span class="invalid-feedback" style="display: block;" role="alert">
+                                        <strong>{{ $errors->first('wallet_address') }}</strong>
                                     </span>
                                 @endif
                             </div>
